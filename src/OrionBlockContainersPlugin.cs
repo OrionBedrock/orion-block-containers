@@ -1,4 +1,3 @@
-using Orion.Block.Traits;
 using Orion.PluginContracts;
 
 namespace OrionBlockContainers;
@@ -14,8 +13,7 @@ public sealed class OrionBlockContainersPlugin : IOrionPlugin
 
     public void Load(IPluginLoadContext context)
     {
-        _ = context;
-        BlockTraitRegistry.RegisterFromAssembly(typeof(OrionBlockContainersPlugin).Assembly);
+        context.Registries.BlockTraits.RegisterFromAssembly(typeof(OrionBlockContainersPlugin).Assembly, Id);
     }
 
     public void OnEnable(IPluginContext context) => _ = context;
