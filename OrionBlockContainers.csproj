@@ -27,18 +27,6 @@
       <Private>false</Private>
       <PrivateAssets>all</PrivateAssets>
     </ProjectReference>
-    <ProjectReference Include="$(OrionServerBERoot)/src/Orion/Orion.csproj">
-      <Private>false</Private>
-      <PrivateAssets>all</PrivateAssets>
-    </ProjectReference>
-    <ProjectReference Include="$(PluginsSiblingRoot)/orion:containers/OrionContainers.csproj">
-      <Private>false</Private>
-      <PrivateAssets>all</PrivateAssets>
-    </ProjectReference>
-    <ProjectReference Include="$(PluginsSiblingRoot)/orion:inventory/OrionInventory.csproj">
-      <Private>false</Private>
-      <PrivateAssets>all</PrivateAssets>
-    </ProjectReference>
   </ItemGroup>
 
   <ItemGroup>
