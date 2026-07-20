@@ -7,12 +7,13 @@ using Orion.Block.Traits;
 using Orion.Block.Traits.Types;
 using Orion.Block.Types;
 using Orion.Containers;
-using Orion.Events;
+using Orion.Api.Events;
 using Orion.Item;
 using Orion.Protocol.Enums;
 using Orion.Protocol.Nbt;
 using Orion.Protocol.Packets;
 using Orion.Protocol.Types;
+using ApiBlockPos = Orion.Api.Math.BlockPos;
 
 public class ChestTrait : BlockTrait
 {
@@ -238,7 +239,10 @@ public class ChestTrait : BlockTrait
             return;
         }
 
-        PlayerOpenContainerSignal openSignal = new(details.Player, details.BlockPosition, Identifier);
+        PlayerOpenContainerSignal openSignal = new(
+            details.Player,
+            new ApiBlockPos(details.BlockPosition.X, details.BlockPosition.Y, details.BlockPosition.Z),
+            Identifier);
         if (details.Player.Dimension?.World?.Server is Orion.Server server)
         {
             server.Emit(openSignal);
